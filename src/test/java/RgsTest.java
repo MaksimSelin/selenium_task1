@@ -74,11 +74,20 @@ public class RgsTest {
         accept.click();
 
         //Check information
-        Assert.assertEquals("Фамилия", lastName.getText());
-        Assert.assertEquals("Имя", firstName.getText());
+        Assert.assertEquals("Фамилия", lastName.getAttribute("value"));
+        Assert.assertEquals("Имя", firstName.getAttribute("value"));
+        Assert.assertEquals("Отчество", middleName.getAttribute("value"));
+        Assert.assertEquals("77", region.getAttribute("value"));
+        Assert.assertEquals("+7 (111) 111-11-11", phone.getAttribute("value"));
+        Assert.assertEquals("qwertyqwerty", email.getAttribute("value"));
+        Assert.assertEquals("My Comment", comment.getAttribute("value"));
+
 
         WebElement submit = driver.findElement(By.id("button-m"));
         submit.click();
+
+        WebElement emailError = driver.findElement(By.xpath("//span[contains(text(), 'почты')]"));
+
 
 
 
