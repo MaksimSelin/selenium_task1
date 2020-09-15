@@ -86,8 +86,10 @@ public class RgsTest {
         WebElement submit = driver.findElement(By.id("button-m"));
         submit.click();
 
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(), 'почты')]")));
         WebElement emailError = driver.findElement(By.xpath("//span[contains(text(), 'почты')]"));
 
+        Assert.assertEquals("Введите адрес электронной почты", emailError.getText());
 
 
 
